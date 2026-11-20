@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookHub</title>
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @await Html.PartialAsync("_DangAnhTu_Header")
+
+    <main class="page-container">
+        @RenderBody()
+    </main>
+
+    @await Html.PartialAsync("_DangAnhTu_Footer")
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

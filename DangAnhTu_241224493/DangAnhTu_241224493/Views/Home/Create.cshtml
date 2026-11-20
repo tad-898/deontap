@@ -1,0 +1,46 @@
+﻿@model DangAnhTu_241224493.ViewModels.BookCreateViewModel
+@{
+    ViewData["Title"] = "Thêm sách mới";
+}
+
+<div class="section-header">
+    <h2>ĐẶNG ANH TÚ - THÊM SÁCH MỚI</h2>
+</div>
+
+<div class="form-container">
+    <form asp-action="Create" asp-controller="Home" method="post">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="MaTl" class="form-label">MaTL</label>
+            <select asp-for="MaTl" asp-items="Model.Categories" class="form-control"></select>
+            <span asp-validation-for="MaTl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TenSach" class="form-label">TenSach</label>
+            <input asp-for="TenSach" class="form-control" />
+            <span asp-validation-for="TenSach" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gia" class="form-label">Gia</label>
+            <input asp-for="Gia" type="number" step="any" class="form-control" />
+            <span asp-validation-for="Gia" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Anh" class="form-label">Anh</label>
+            <input asp-for="Anh" class="form-control" placeholder="Ví dụ: Img_1.jpg" />
+            <span asp-validation-for="Anh" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Create</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

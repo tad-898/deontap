@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DangAnhTu_241224493.Models.LoaiTaiSan>
+
+<ul class="menu">
+    <li class="active">
+        <a asp-controller="Home" asp-action="Index" class="menu-item" data-id="0">Đặng Anh Tú</a>
+    </li>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="javascript:void(0)" class="menu-item" data-id="@item.MaLoai" data-name="@item.TenLoai">
+                @item.TenLoai
+            </a>
+        </li>
+    }
+</ul>

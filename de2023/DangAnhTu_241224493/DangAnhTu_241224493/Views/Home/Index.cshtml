@@ -1,0 +1,28 @@
+<<<<<<< HEAD
+﻿@model DangAnhTu_241224493.ViewModels.BookSectionViewModel
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div id="book-section-container">
+    @await Html.PartialAsync("_DangAnhTu_MainContent", Model)
+=======
+﻿@model IEnumerable<DangAnhTu_241224493.Models.HangHoa>
+
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>ĐẶNG ANH TÚ</h3>
+        </div>
+        <div class="see">
+            <p><a asp-action="Create" asp-controller="Home">Thêm Hàng Hóa Mới</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+   
+    <div class="section group" id="product-list">
+        <partial name="_ProductListPartial" model="Model" />
+    </div>
+>>>>>>> 3ab655a (De 2023)
+</div>

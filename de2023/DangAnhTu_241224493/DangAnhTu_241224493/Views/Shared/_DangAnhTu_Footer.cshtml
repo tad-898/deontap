@@ -1,0 +1,88 @@
+<<<<<<< HEAD
+﻿<footer class="footer">
+    <div class="container">
+        <div class="grid">
+            <div><h4>Về BookHub</h4><ul><li><a href="#">Giới thiệu</a></li><li><a href="#">Tuyển dụng</a></li><li><a href="#">Hệ thống cửa hàng</a></li></ul></div>
+            <div><h4>Hỗ trợ khách hàng</h4><ul><li><a href="#">Hướng dẫn mua hàng</a></li><li><a href="#">Chính sách đổi trả</a></li><li><a href="#">Bảo mật thông tin</a></li></ul></div>
+            <div><h4>Tài khoản</h4><ul><li><a href="#">Đăng nhập</a></li><li><a href="#">Giỏ hàng</a></li><li><a href="#">Sách yêu thích</a></li></ul></div>
+            <div><h4>Liên hệ</h4><ul><li>Hotline: 1900 6789</li><li>Email: cskh@bookhub.vn</li></ul></div>
+        </div>
+        <div class="copyright">&copy; 2026 BookHub. Template phục vụ đề thi mẫu.</div>
+    </div>
+</footer>
+
+<div class="to-top">&uarr;</div>
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".nav-filter", function (e) {
+            var $container = $("#book-section-container");
+
+            
+            if ($container.length > 0) {
+                e.preventDefault();
+
+                var categoryId = $(this).data("id");
+                var categoryName = $(this).data("name");
+
+                $(".menu li").removeClass("active");
+                $(this).closest("li").addClass("active");
+
+                $.ajax({
+                    url: '@Url.Action("FilterByCategory", "Home")',
+                    type: 'GET',
+                    data: { id: categoryId, categoryName: categoryName },
+                    success: function (result) {
+                        $container.html(result);
+                    },
+                    error: function () {
+                        alert("Không thể tải danh sách sách theo thể loại.");
+                    }
+                });
+            }
+        });
+    });
+</script>
+=======
+﻿<div class="footer">
+    <div class="wrap">
+        <div class="section group">
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Thông tin</h4>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-controller="Home" asp-action="Create">Thêm hàng hóa mới</a></li>
+                </ul>
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Danh mục</h4>
+                <ul>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính</a></li>
+                    <li><a href="#">Ti vi</a></li>
+                    <li><a href="#">Tủ lạnh</a></li>
+                    <li><a href="#">Phụ kiện</a></li>
+                </ul>
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Sinh viên</h4>
+                <ul>
+                    <li><span>Đặng Anh Tú</span></li>
+                    <li><span>241224493</span></li>
+                </ul>
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><span>QLHangHoa - ASP.NET Core MVC</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copy_right">
+        <p>&copy; 2026 Đặng Anh Tú. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+</div>
+>>>>>>> 3ab655a (De 2023)

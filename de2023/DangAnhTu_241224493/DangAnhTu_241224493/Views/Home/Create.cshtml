@@ -1,0 +1,104 @@
+<<<<<<< HEAD
+﻿@model DangAnhTu_241224493.ViewModels.BookCreateViewModel
+@{
+    ViewData["Title"] = "Thêm sách mới";
+}
+
+<div class="section-header">
+    <h2>ĐẶNG ANH TÚ - THÊM SÁCH MỚI</h2>
+</div>
+
+<div class="form-container">
+    <form asp-action="Create" asp-controller="Home" method="post">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="MaTl" class="form-label">MaTL</label>
+            <select asp-for="MaTl" asp-items="Model.Categories" class="form-control"></select>
+            <span asp-validation-for="MaTl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TenSach" class="form-label">TenSach</label>
+            <input asp-for="TenSach" class="form-control" />
+            <span asp-validation-for="TenSach" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gia" class="form-label">Gia</label>
+            <input asp-for="Gia" type="number" step="any" class="form-control" />
+            <span asp-validation-for="Gia" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Anh" class="form-label">Anh</label>
+            <input asp-for="Anh" class="form-control" placeholder="Ví dụ: Img_1.jpg" />
+            <span asp-validation-for="Anh" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Create</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+=======
+﻿@model DangAnhTu_241224493.Models.HangHoa
+
+@{
+    ViewData["Title"] = "Thêm hàng hóa";
+}
+
+<div class="container mt-4">
+    <h2>Thêm hàng hóa mới</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="MaLoai" class="control-label">Loại hàng</label>
+                    <select asp-for="MaLoai" class="form-control" asp-items="ViewBag.MaLoai">
+                        <option value="">-- Chọn loại hàng --</option>
+                    </select>
+                    <span asp-validation-for="MaLoai" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="TenHang" class="control-label">Tên hàng</label>
+                    <input asp-for="TenHang" class="form-control" />
+                    <span asp-validation-for="TenHang" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Gia" class="control-label">Giá</label>
+                    <input asp-for="Gia" type="number" step="any" class="form-control" />
+                    <span asp-validation-for="Gia" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Anh" class="control-label">Tên file ảnh (vd: sp01.jpg)</label>
+                    <input asp-for="Anh" class="form-control" />
+                    <span asp-validation-for="Anh" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+>>>>>>> 3ab655a (De 2023)
+}

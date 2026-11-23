@@ -1,0 +1,23 @@
+﻿@model DangAnhTu_241224493.ViewModels.BookSectionViewModel
+
+<div class="container">
+    <div class="section-head">
+        <h3 id="section-title">@Model.SectionTitle</h3>
+        <a href="javascript:void(0);">Xem tất cả &rsaquo;</a>
+    </div>
+
+    <div class="grid">
+        @foreach (var item in Model.Books)
+        {
+            var imgFile = string.IsNullOrWhiteSpace(item.Anh) ? "Img_1.jpg" : item.Anh;
+            <div class="book-card">
+                <img src="~/images/@imgFile" alt="@item.TenSach" />
+                <h2>@item.TenSach</h2>
+                <div class="book-foot">
+                    <span class="price">@item.Gia</span>
+                    <button type="button" class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
